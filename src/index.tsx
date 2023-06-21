@@ -1,11 +1,7 @@
 import { Dimensions } from 'react-native';
 import _ from 'lodash';
-interface StyleObject {
-  [key: string]: string | number;
-}
-interface StyleSheetType {
-  [key: string]: StyleObject;
-}
+
+type StyleSheetType = any;
 const standardWidth = 430;
 const standardHeight = 932;
 export function responsiveWidth(value: number): number {
@@ -61,8 +57,6 @@ export function useResponsive(styleSheet: StyleSheetType) {
   const clone = _.cloneDeep(styleSheet);
   for (const styleClass in clone) {
     const styleToCheck = clone[styleClass];
-    //check is number
-    // check its there
     if (styleToCheck?.width && typeof styleToCheck?.width === 'number') {
       clone[styleClass].width = responsiveWidth(styleToCheck.width);
     }
@@ -73,6 +67,5 @@ export function useResponsive(styleSheet: StyleSheetType) {
       clone[styleClass].fontSize = responsiveFontSize(styleToCheck.fontSize);
     }
   }
-  console.log('styleSheet: ', styleSheet.text);
   return clone;
 }
