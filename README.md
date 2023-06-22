@@ -4,18 +4,28 @@ Easy responsive styles for react native
 
 ## Installation
 
+### NPM
+
 ```sh
-npm install react-native-responsive
+npm install @exorttech/react-native-responsive
+```
+
+### Yarn
+
+```sh
+yarn add @exorttech/react-native-responsive
 ```
 
 ## Usage
 
+### Hook
+
 ```js
-import { multiply } from 'react-native-responsive';
+import { useResponsive } from '@exorttech/react-native-responsive';
 
 // ...
 
-const result = await multiply(3, 7);
+const newStyleSheet = useResponsive(YourReactNativeStyleSheet);
 ```
 
 ## Contributing

@@ -1,5 +1,5 @@
 {
-  "name": "react-native-responsive",
+  "name": "@exorttech/react-native-responsive",
   "version": "0.1.0",
   "description": "test",
   "main": "lib/commonjs/index",
