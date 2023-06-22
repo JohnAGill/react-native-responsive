@@ -1,7 +1,7 @@
 {
   "name": "@exorttech/react-native-responsive",
-  "version": "0.1.0",
-  "description": "test",
+  "version": "0.1.1",
+  "description": "Easy responsive styles for react native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
@@ -38,7 +38,9 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "responsive",
+    "styles"
   ],
   "repository": "https://github.com/JohnAGill/react-native-responsive",
   "author": "John Gill <john@johngill.co.uk> (https://github.com/JohnAGill)",

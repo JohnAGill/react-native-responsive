@@ -74,6 +74,18 @@ const styles = StyleSheet.create({
 });
 ```
 
+## ToDo
+
+- Allow standard values to be overwritten in a config call
+
+- Add more functions for changing different style values
+
+- Add explination for standard values
+
+- Add types definitions for ts support
+
+* more to come
+
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
