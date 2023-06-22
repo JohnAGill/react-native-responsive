@@ -25,7 +25,53 @@ import { useResponsive } from '@exorttech/react-native-responsive';
 
 // ...
 
-const newStyleSheet = useResponsive(YourReactNativeStyleSheet);
+const newStyleSheet = useResponsive(yourReactNativeStyleSheet);
+
+<View style={newStyleSheet.container}>
+  <View style={newStyleSheet.box}>
+    <Text style={newStyleSheet.text}>React Native Responsive Rocks!</Text>
+  </View>
+</View>;
+
+const yourReactNativeStyleSheet = StyleSheet.create({
+  container: {
+    width: 600,
+    height: 600,
+  },
+  box: {
+    width: 300,
+    height: 120,
+  },
+  text: {
+    fontSize: 32,
+  },
+});
+```
+
+### Individual functions
+
+```js
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from '@exorttech/react-native-responsive';
+
+// ...
+<View style={styles.container}>
+  <View style={{ width: responsiveWidth(300), height: responsiveHeight(120) }}>
+    <Text style={{ fontSize: responsiveFontSize(32) }}>
+      React Native Responsive Rocks!
+    </Text>
+  </View>
+</View>;
+
+const styles = StyleSheet.create({
+  container: {
+    width: responsiveWidth(600),
+    height: 600,
+  },
+});
 ```
 
 ## Contributing
