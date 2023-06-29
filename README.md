@@ -2,6 +2,18 @@
 
 Easy responsive styles for react native
 
+## Motivation
+
+A common problem when building mobile apps in React Native is style consistency across different device sizes.
+
+The aim of this package is to tweak your styles fixed values to produce a more consistent layout between different devices.
+
+As outlined below I've used the current largest iPhone as the default standard values but these can be changed by the user as needed.
+
+The current working principle is to scale down fixed dimensions to account for the smaller screen space,
+
+However I would like to introduce more functionality that allows for the opposite, meaning your mobile styles can be scaled up to work on tablets while maintaining the overall aesthetic.
+
 ## Installation
 
 ### NPM
@@ -113,17 +125,14 @@ const styles = StyleSheet.create({
 ## Standard Values
 
 The Standard values are based on the iPhone 14 pro max width and height.
+
 These values can be changed to fit the users needs by using the custom hook instance outlined above
 
 ## ToDo
 
 - Add more functions for changing different style values
 
-- Add explination for standard values
-
 - Add types definitions for ts support
-
-* more to come
 
 ## Contributing
 
