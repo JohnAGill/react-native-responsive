@@ -110,6 +110,11 @@ const styles = StyleSheet.create({
 });
 ```
 
+## Standard Values
+
+The Standard values are based on the iPhone 14 pro max width and height.
+These values can be changed to fit the users needs by using the custom hook instance outlined above
+
 ## ToDo
 
 - Add more functions for changing different style values
