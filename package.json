@@ -1,6 +1,6 @@
 {
   "name": "@exorttech/react-native-responsive",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Easy responsive styles for react native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
