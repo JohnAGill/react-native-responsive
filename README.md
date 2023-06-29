@@ -48,6 +48,42 @@ const yourReactNativeStyleSheet = StyleSheet.create({
 });
 ```
 
+### Custom Hook
+
+```js
+// responsiveStyles.ts
+import { createResponsive } from '@exorttech/react-native-responsive';
+
+const useResponsive = createResponsive({ width: 420, height: 932 });
+
+export default useResponsive;
+
+// App.tsx
+import useCustomResponsive from './responseiveStyles';
+
+const newStyleSheet = useCustomResponsive(yourReactNativeStyleSheet);
+
+<View style={newStyleSheet.container}>
+  <View style={newStyleSheet.box}>
+    <Text style={newStyleSheet.text}>React Native Responsive Rocks!</Text>
+  </View>
+</View>;
+
+const yourReactNativeStyleSheet = StyleSheet.create({
+  container: {
+    width: 600,
+    height: 600,
+  },
+  box: {
+    width: 300,
+    height: 120,
+  },
+  text: {
+    fontSize: 32,
+  },
+});
+```
+
 ### Individual functions
 
 ```js
@@ -75,8 +111,6 @@ const styles = StyleSheet.create({
 ```
 
 ## ToDo
-
-- Allow standard values to be overwritten in a config call
 
 - Add more functions for changing different style values
 

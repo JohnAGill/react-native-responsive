@@ -1,33 +1,35 @@
 import * as React from 'react';
 
 import { StyleSheet, View, ScrollView, SafeAreaView, Text } from 'react-native';
-import { useResponsive } from 'react-native-responsive';
+import { useResponsive } from '@exorttech/react-native-responsive';
+import useCustomResponsive from './responseiveStyles';
 
 export default function App() {
-  const newSS = useResponsive(styles);
+  const newStyleSheet = useCustomResponsive(styles);
+
   return (
-    <SafeAreaView style={newSS.container}>
+    <SafeAreaView style={newStyleSheet.container}>
       <ScrollView>
-        <View style={newSS.box}>
-          <View style={newSS.line1} />
+        <View style={newStyleSheet.box}>
+          <View style={newStyleSheet.line1} />
           <View>
             <View style={{ flexDirection: 'row' }}>
-              <Text style={newSS.text}>Hello i am some text</Text>
-              <View style={newSS.box2} />
-              <Text style={newSS.text}>Hello i am some text</Text>
+              <Text style={newStyleSheet.text}>Hello i am some text</Text>
+              <View style={newStyleSheet.box2} />
+              <Text style={newStyleSheet.text}>Hello i am some text</Text>
             </View>
-            <Text style={newSS.text}>Hello i am some text</Text>
+            <Text style={newStyleSheet.text}>Hello i am some text</Text>
 
-            <View style={newSS.box2} />
+            <View style={newStyleSheet.box2} />
           </View>
           <View>
             <View style={{ flexDirection: 'row' }}>
-              <Text style={newSS.text}>Hello i am some text</Text>
+              <Text style={newStyleSheet.text}>Hello i am some text</Text>
 
-              <View style={newSS.box2} />
-              <Text style={newSS.text}>Hello i am some text</Text>
+              <View style={newStyleSheet.box2} />
+              <Text style={newStyleSheet.text}>Hello i am some text</Text>
             </View>
-            <Text style={newSS.text}>Hello i am some text</Text>
+            <Text style={newStyleSheet.text}>Hello i am some text</Text>
           </View>
         </View>
       </ScrollView>

@@ -1,12 +1,18 @@
 import { Dimensions } from 'react-native';
 import _ from 'lodash';
 
-type StyleSheetType = any;
+type StyleSheetType = {
+  [key: string]: {
+    [key: string]: string | number;
+  };
+};
 const standardWidth = 430;
 const standardHeight = 932;
-export function responsiveWidth(value: number): number {
+
+export function responsiveWidth(value: number, standard?: number): number {
+  const standardtoUse = standard || standardWidth;
   const dimensions = Dimensions.get('window');
-  const widthDifference = standardWidth - dimensions.width;
+  const widthDifference = standardtoUse - dimensions.width;
   if (widthDifference !== 0) {
     const differenceAsPercentage = widthDifference / dimensions.width;
     if (value < 200 && widthDifference > 50) {
@@ -20,9 +26,12 @@ export function responsiveWidth(value: number): number {
   }
   return value;
 }
-export function responsiveHeight(value: number): number {
+
+export function responsiveHeight(value: number, standard?: number): number {
+  const standardtoUse = standard || standardHeight;
+
   const dimensions = Dimensions.get('window');
-  const heightDifference = standardHeight - dimensions.height;
+  const heightDifference = standardtoUse - dimensions.height;
   if (heightDifference !== 0) {
     const differenceAsPercentage = heightDifference / dimensions.height;
     const round = value * differenceAsPercentage;
@@ -32,9 +41,11 @@ export function responsiveHeight(value: number): number {
   return value;
 }
 
-export function responsiveFontSize(value: number): number {
+export function responsiveFontSize(value: number, standard?: number): number {
+  const standardtoUse = standard || standardHeight;
+
   const dimensions = Dimensions.get('window');
-  const heightDifference = standardHeight - dimensions.height;
+  const heightDifference = standardtoUse - dimensions.height;
   if (heightDifference !== 0) {
     const differenceAsPercentage = heightDifference / dimensions.height;
     if (heightDifference > 150) {
@@ -53,19 +64,36 @@ export function responsiveFontSize(value: number): number {
   return value;
 }
 
-export function useResponsive(styleSheet: StyleSheetType) {
+export function useResponsive(
+  styleSheet: StyleSheetType,
+  _height?: number,
+  _width?: number
+) {
+  const height = _height || standardHeight;
+  const width = _width || standardWidth;
+
   const clone = _.cloneDeep(styleSheet);
   for (const styleClass in clone) {
-    const styleToCheck = clone[styleClass];
+    const styleToCheck = clone[styleClass] || {};
     if (styleToCheck?.width && typeof styleToCheck?.width === 'number') {
-      clone[styleClass].width = responsiveWidth(styleToCheck.width);
+      styleToCheck.width = responsiveWidth(styleToCheck.width, width);
     }
     if (styleToCheck?.height && typeof styleToCheck?.height === 'number') {
-      clone[styleClass].height = responsiveHeight(styleToCheck.height);
+      styleToCheck.height = responsiveHeight(styleToCheck.height, height);
     }
     if (styleToCheck?.fontSize && typeof styleToCheck?.fontSize === 'number') {
-      clone[styleClass].fontSize = responsiveFontSize(styleToCheck.fontSize);
+      styleToCheck.fontSize = responsiveFontSize(styleToCheck.fontSize, height);
     }
   }
   return clone;
 }
+
+interface Options {
+  width?: number;
+  height?: number;
+}
+
+export const createResponsive = (options: Options) => {
+  return (styleSheet: StyleSheetType) =>
+    useResponsive(styleSheet, options.height, options.width);
+};
